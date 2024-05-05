@@ -7,7 +7,7 @@ import ErrorPage from "./components/pages/ErrorPage";
 
 const App: FC = () => {
   return (
-    <div>
+    <div className="max-w-screen-ds mx-auto">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

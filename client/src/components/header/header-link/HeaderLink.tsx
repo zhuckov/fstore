@@ -7,8 +7,8 @@ interface IHeaderLink {
 }
 
 const HeaderLink: FC<IHeaderLink> = ({ link, children }) => {
-  const notActiveClasses = "hidden lg:inline text-xl font-header-link  text-gray-900";
-  const ActiveClasses = "hidden lg:inline text-xl gothic  text-gray-400";
+  const notActiveClasses = "hidden lp:inline-flex gap-2 lp:text-xl lp:items-center lp:text-gray-900 hover:text-gray-600";
+  const ActiveClasses = "hidden lp:inline-flex gap-2 lp:text-xl lp:gothic lp:text-gray-400 lp:items-center";
   return (
     <NavLink to={link} className={({ isActive }) => (isActive ? ActiveClasses : notActiveClasses)}>
       {children}

@@ -11,9 +11,9 @@ interface IHeaderMenu {
 const HeaderMenu: FC<IHeaderMenu> = ({ setMobileMenuOpen }) => {
   return (
     <div className="">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <Popover.Group className="lg:flex lg:gap-x-12 items-center">
-          <div className="flex lg:flex-1">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between py-4 ds:px-0" aria-label="Global">
+        <Popover.Group className="lp:flex lp:gap-x-12 items-center">
+          <div className="flex lp:flex-1">
             <NavLink to="/" className="-m-1.5 p-1.5">
               <img className="h-16 w-auto" src="/logo.svg" alt="" />
             </NavLink>
@@ -22,7 +22,7 @@ const HeaderMenu: FC<IHeaderMenu> = ({ setMobileMenuOpen }) => {
           <HeaderLink link="/catalog">Catalog</HeaderLink>
           <HeaderLink link="/cart">Cart</HeaderLink>
         </Popover.Group>
-        <div className="flex lg:hidden">
+        <div className="flex lp:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -32,11 +32,20 @@ const HeaderMenu: FC<IHeaderMenu> = ({ setMobileMenuOpen }) => {
           </button>
         </div>
 
-        <div className="hidden lg:flex lg:flex-1 lg:items-center lg:gap-2 lg:justify-end">
-          <HeaderLink link="/login">Log in</HeaderLink>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-          </svg>
+        <div className="hidden lp:flex lp:flex-1 lp:items-center lp:gap-2 lp:justify-end">
+          <HeaderLink link="/login">
+            Log in
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1}
+              stroke="currentColor"
+              className="w-6 h-6 relative top-0.5"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
+          </HeaderLink>
         </div>
       </nav>
     </div>
