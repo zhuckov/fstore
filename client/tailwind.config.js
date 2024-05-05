@@ -10,6 +10,12 @@ export default {
       fontFamily: {
         "header-link": ["Gotchic"],
       },
+      screens: {
+        mb: "360px",
+        tb: "480px",
+        lp: "768px",
+        ds: "1200px",
+      },
     },
     container: {},
   },
