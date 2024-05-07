@@ -10,5 +10,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(config.Database.Host)
+	fmt.Println(config.Database.Name)
 }
