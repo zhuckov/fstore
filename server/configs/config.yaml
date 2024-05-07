@@ -1,0 +1,8 @@
+Host: "localhost:80"
+
+Database:
+  Host: "host"
+  Port: 5432
+  User: "postgres"
+  Password: "password"
+  Name: "products"
