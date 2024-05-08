@@ -28,13 +28,12 @@ func main() {
 		var price float64
 		var photoURL string
 
-		// Сканируйте значения столбцов в соответствующие переменные
 		err := rows.Scan(&id, &name, &price, &photoURL)
+
 		if err != nil {
 			log.Fatal("Ошибка при сканировании строки:", err)
 		}
 
-		// Выведите данные
 		fmt.Printf("ID: %d, Название: %s, Цена: %.2f, Фото: %s\n", id, name, price, photoURL)
 	}
 	if err := rows.Err(); err != nil {

@@ -4,5 +4,5 @@ Database:
   Host: "localhost"
   Port: 5432
   User: "postgres"
-  Password: "тут не будет пароля )))"
+  Password: "pw"
   Name: "testdatabase"
