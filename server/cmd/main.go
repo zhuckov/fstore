@@ -3,11 +3,22 @@ package main
 import (
 	"fmt"
 	"log"
+	"restwebserver/configs"
 	"restwebserver/db"
+	"restwebserver/internal/handlers/product"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	config, err := configs.LoadConfig()
 
+	if err != nil {
+		log.Fatal("Ошибка при получении данных конфига:", err)
+		return
+	}
+
+	serverHost := config.Host
 	database, err := db.InitDatabase()
 	if err != nil {
 		log.Fatal("Ошибка при инициализации базы данных:", err)
@@ -39,4 +50,9 @@ func main() {
 	if err := rows.Err(); err != nil {
 		log.Fatal(err)
 	}
+
+	r := gin.Default()
+	r.GET("/", product.GetProducts)
+
+	r.Run(serverHost)
 }
