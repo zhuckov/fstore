@@ -1,40 +1,45 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { data } from "../../products.data";
-
+import "../../../models/interfaces";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 
 interface CatalogProps {}
 
 const Catalog: FC<CatalogProps> = ({}) => {
+  const [products, setProducts] = useState<Product[]>([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<Error | null>();
+
+  async function fetchAllProducts() {
+    const response = await fetch("http://localhost:80/")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setProducts(data);
+        console.log(data);
+      });
+  }
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
+
   return (
     <div className="lp:px-4 tb:px-3">
       <h1 className="text-4xl font-header-link">Каталог</h1>
-      {/* <section className="mt-6 grid ds:grid-cols-4 ds:gap-x-2 ds:gap-y-6 lp:grid-cols-3 lp:gap-x-2 lp:gap-y-6 tb:grid-cols-2 tb:gap-x-2 tb:gap-y-6 mb:grid-cols-1 mb:gap-y-6">
-
-      </section> */}
-      {data.length ? (
+      {products.length ? (
         <Swiper spaceBetween={20} slidesPerView={4} autoplay={true} loop={true}>
-          {data.map((product) => (
-            <SwiperSlide key={product.productId} className="flex flex-col ds:gap-2">
-              <img className="object-cover" src={product.productImage} alt={product.productName} />
+          {products.map((product) => (
+            <SwiperSlide key={product.id} className="flex flex-col ds:gap-2">
+              <img className="object-cover" src={product.productPhoto} alt={product.productName} />
               <p className="text-3xl">{product.productName}</p>
               <p className="flex gap-3 text-xl">
                 {Intl.NumberFormat("ru-RU", {
                   style: "currency",
                   currency: "RUB",
-                }).format(product.productNewPrice)}
-                {product.productOldPrice != 0 ? (
-                  <span className="text-gray-400 text-xl line-through">
-                    {Intl.NumberFormat("ru-RU", {
-                      style: "currency",
-                      currency: "RUB",
-                    }).format(product.productOldPrice)}
-                  </span>
-                ) : (
-                  ""
-                )}
+                }).format(product.productPrice)}
               </p>
             </SwiperSlide>
           ))}
