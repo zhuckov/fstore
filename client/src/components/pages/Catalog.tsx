@@ -1,6 +1,4 @@
 import { FC, useEffect } from "react";
-import { data } from "../../products.data";
-import "../../../models/interfaces";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

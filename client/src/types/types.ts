@@ -4,3 +4,7 @@ interface Product {
   productPrice: number;
   productPhoto: string;
 }
+
+interface LogoProps {
+  pathToLogo: string;
+}

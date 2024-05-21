@@ -10,7 +10,7 @@ const App: FC = () => {
   const location = useLocation();
   const isAdmin = location.pathname == "/admin-panel";
   return (
-    <div className={isAdmin ? "" : "max-w-screen-ds mx-auto"}>
+    <div className={isAdmin ? "ds:w-auto" : "max-w-screen-ds mx-auto"}>
       {!isAdmin && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
