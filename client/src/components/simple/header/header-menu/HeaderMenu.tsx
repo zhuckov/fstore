@@ -2,7 +2,7 @@ import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { Popover } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import HeaderLink from "../header-link/HeaderLink";
+import HeaderLink from "../../../ui/header-link/HeaderLink";
 
 interface IHeaderMenu {
   setMobileMenuOpen: (newState: boolean) => void;

@@ -1,10 +1,10 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import Header from "./components/header/Header";
 import { FC } from "react";
-import Catalog from "./components/pages/Catalog";
-import Home from "./components/pages/Home";
-import ErrorPage from "./components/pages/ErrorPage";
-import Admin from "./components/pages/Admin";
+import Catalog from "./pages/Catalog";
+import Home from "./pages/Home";
+import ErrorPage from "./pages/ErrorPage";
+import Admin from "./pages/Admin";
+import Header from "./components/simple/header/Header";
 
 const App: FC = () => {
   const location = useLocation();

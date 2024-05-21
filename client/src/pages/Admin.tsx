@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Logo from "../ui/logo/Logo";
+import Logo from "../components/ui/logo/Logo";
 
 const Admin: FC = () => {
   return (
