@@ -1,8 +1,0 @@
-Host: "localhost:80"
-
-Database:
-  Host: "localhost"
-  Port: 5432
-  User: "postgres"
-  Password: "159245ghg"
-  Name: "testdatabase"
