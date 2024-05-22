@@ -1,10 +1,24 @@
-interface Product {
+import { FC, ReactElement } from "react";
+
+export interface IProduct {
   id: number;
   productName: string;
   productPrice: number;
   productPhoto: string;
 }
 
-interface LogoProps {
+export interface ILogoProps {
   pathToLogo: string;
+}
+
+export interface IIcon {
+  iconColor: string;
+  width?: number;
+  height?: number;
+}
+
+export interface ISideLink {
+  Icon: ReactElement;
+  link: string;
+  linkText: string;
 }

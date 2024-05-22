@@ -6,7 +6,7 @@ import "swiper/css";
 interface CatalogProps {}
 
 const Catalog: FC<CatalogProps> = ({}) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   // const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>();
 

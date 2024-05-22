@@ -13,6 +13,7 @@ export default {
         "header-link": "",
         "header-link_active": "",
         "admin-side-bg": "#F1F2F7",
+        "admin-menu-color": "#082431",
       },
       fontFamily: {
         "header-link": ["Gotchic"],
