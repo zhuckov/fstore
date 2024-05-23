@@ -2,6 +2,8 @@ import { FC, useEffect } from "react";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { IProduct } from "../types/types";
+import CatalogCard from "../components/smart/catalog-card/CatalogCard";
 
 interface CatalogProps {}
 
@@ -31,14 +33,12 @@ const Catalog: FC<CatalogProps> = ({}) => {
         <Swiper spaceBetween={20} slidesPerView={4} autoplay={true} loop={true}>
           {products.map((product) => (
             <SwiperSlide key={product.id} className="flex flex-col ds:gap-2">
-              <img className="object-cover" src={product.productPhoto} alt={product.productName} />
-              <p className="text-3xl">{product.productName}</p>
-              <p className="flex gap-3 text-xl">
-                {Intl.NumberFormat("ru-RU", {
-                  style: "currency",
-                  currency: "RUB",
-                }).format(product.productPrice)}
-              </p>
+              <CatalogCard
+                id={product.id}
+                productName={product.productName}
+                productPhoto={product.productPhoto}
+                productPrice={product.productPrice}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
