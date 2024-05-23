@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC } from "react";
 
 export interface IProduct {
   id: number;
@@ -12,13 +12,14 @@ export interface ILogoProps {
 }
 
 export interface IIcon {
-  iconColor: string;
+  isActive: boolean;
   width?: number;
   height?: number;
+  link?: string;
 }
 
 export interface ISideLink {
-  Icon: ReactElement;
+  Icon: FC<IIcon>;
   link: string;
   linkText: string;
 }

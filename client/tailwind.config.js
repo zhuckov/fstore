@@ -14,6 +14,8 @@ export default {
         "header-link_active": "",
         "admin-side-bg": "#F1F2F7",
         "admin-menu-color": "#082431",
+        "admin-active-bg": "rgba(112, 127, 221, 0.1)",
+        "admin-active-link": "#5A6ACF",
       },
       fontFamily: {
         "header-link": ["Gotchic"],
