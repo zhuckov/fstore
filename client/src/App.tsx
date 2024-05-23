@@ -8,7 +8,11 @@ import Header from "./components/simple/header/Header";
 
 const App: FC = () => {
   const location = useLocation();
-  const isAdmin = location.pathname == "/admin-panel";
+  const isAdmin =
+    location.pathname == "/admin-panel" ||
+    location.pathname == "/admin-manage-menu" ||
+    location.pathname == "/admin-orders" ||
+    location.pathname == "/admin-users";
   return (
     <div className={isAdmin ? "ds:w-auto" : "max-w-screen-ds mx-auto"}>
       {!isAdmin && <Header />}
@@ -16,6 +20,9 @@ const App: FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/admin-panel" element={<Admin />} />
+        <Route path="/admin-manage-menu" element={<Admin />} />
+        <Route path="/admin-orders" element={<Admin />} />
+        <Route path="/admin-users" element={<Admin />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

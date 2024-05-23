@@ -1,10 +1,9 @@
 import { FC } from "react";
 import { IIcon } from "../../../../types/types";
 
-export const DashboardIcon: FC<IIcon> = ({ width, height, isActive }) => {
-  console.log(isActive);
+export const DashboardIcon: FC<IIcon> = ({ isActive, width, height }) => {
   return (
-    <svg width={width ? width : "16"} height={height ? height : "16"} viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width ? width : "16"} height={height ? height : "16"} fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
