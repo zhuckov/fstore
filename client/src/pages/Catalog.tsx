@@ -1,35 +1,39 @@
 import { FC, useEffect } from "react";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { IProduct } from "../types/types";
 import CatalogCard from "../components/smart/catalog-card/CatalogCard";
+import { fetchAllProducts } from "../services/productService";
 
 interface CatalogProps {}
 
 const Catalog: FC<CatalogProps> = ({}) => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  // const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<Error | null>();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>();
 
-  async function fetchAllProducts() {
-    const response = await fetch("http://localhost:80/")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        console.log(data);
-      });
-  }
   useEffect(() => {
-    fetchAllProducts();
+    async function getProducts() {
+      try {
+        const response = await fetchAllProducts();
+        setProducts(response);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getProducts();
   }, []);
 
   return (
     <div className="lp:px-4 tb:px-3">
       <h1 className="text-4xl font-header-link">Каталог</h1>
-      {products.length ? (
+      {isLoading && <p>Загрузка</p>}
+      {error && <p>{error}</p>}
+      {products.length && !isLoading ? (
         <Swiper spaceBetween={20} slidesPerView={4} autoplay={true} loop={true}>
           {products.map((product) => (
             <SwiperSlide key={product.id} className="flex flex-col ds:gap-2">
@@ -43,7 +47,7 @@ const Catalog: FC<CatalogProps> = ({}) => {
           ))}
         </Swiper>
       ) : (
-        <h2>Products not exists</h2>
+        ""
       )}
     </div>
   );
