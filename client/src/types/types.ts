@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 export interface IProduct {
   id: number;
@@ -23,3 +23,10 @@ export interface ISideLink {
   link: string;
   linkText: string;
 }
+
+export interface IHeaderLink {
+  link: string;
+  children: ReactNode;
+}
+
+export interface ICatalogDisplaySwitcher {}

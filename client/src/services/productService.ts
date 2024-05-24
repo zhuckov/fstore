@@ -1,4 +1,4 @@
-import { IProduct } from "../types/types";
+import { IProduct } from "@/types/types";
 
 const URL = "http://localhost:80/";
 

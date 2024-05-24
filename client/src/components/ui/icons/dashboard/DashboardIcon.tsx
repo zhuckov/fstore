@@ -1,5 +1,5 @@
+import { IIcon } from "@/types/types";
 import { FC } from "react";
-import { IIcon } from "../../../../types/types";
 
 export const DashboardIcon: FC<IIcon> = ({ isActive, width, height }) => {
   return (

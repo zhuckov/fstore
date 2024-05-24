@@ -1,5 +1,5 @@
+import { IIcon } from "@/types/types";
 import { FC } from "react";
-import { IIcon } from "../../../../types/types";
 
 export const MenuIcon: FC<IIcon> = ({ width, height, isActive }) => {
   return (

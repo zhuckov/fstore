@@ -1,6 +1,6 @@
+import { ILogoProps } from "@/types/types";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { ILogoProps } from "../../../types/types";
 
 const Logo: FC<ILogoProps> = ({ pathToLogo }) => {
   return (

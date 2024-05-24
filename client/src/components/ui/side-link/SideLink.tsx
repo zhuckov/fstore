@@ -1,5 +1,6 @@
+import { ISideLink } from "@/types/types";
 import { FC } from "react";
-import { ISideLink } from "../../../types/types";
+
 import { NavLink } from "react-router-dom";
 
 const SideLink: FC<ISideLink> = ({ Icon, link, linkText }) => {

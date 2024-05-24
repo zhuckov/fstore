@@ -1,10 +1,6 @@
-import { FC, ReactNode } from "react";
+import { IHeaderLink } from "@/types/types";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
-
-interface IHeaderLink {
-  link: string;
-  children: ReactNode;
-}
 
 const HeaderLink: FC<IHeaderLink> = ({ link, children }) => {
   const notActiveClasses = "hidden lp:inline-flex gap-2 lp:text-xl lp:items-center lp:text-gray-900 hover:text-gray-600";

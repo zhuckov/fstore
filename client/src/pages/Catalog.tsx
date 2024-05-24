@@ -1,9 +1,9 @@
 import { FC, useEffect } from "react";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { IProduct } from "../types/types";
 import CatalogCard from "../components/smart/catalog-card/CatalogCard";
 import { fetchAllProducts } from "../services/productService";
+import { IProduct } from "@/types/types";
 
 interface CatalogProps {}
 

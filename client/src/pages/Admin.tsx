@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Logo from "../components/ui/logo/Logo";
-import AdminSideMenu from "../components/simple/admin-sidemenu/AdminSideMenu";
+import AdminSideMenu from "../components/ordinary/admin-sidemenu/AdminSideMenu";
 
 const Admin: FC = () => {
   return (
