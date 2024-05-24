@@ -29,4 +29,6 @@ export interface IHeaderLink {
   children: ReactNode;
 }
 
-export interface IAdminCatalog {}
+export interface IProductList {
+  products: IProduct[];
+}

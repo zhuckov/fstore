@@ -16,7 +16,7 @@ const App: FC = () => {
     location.pathname == "/admin-orders" ||
     location.pathname == "/admin-users";
   return (
-    <div className={isAdmin ? "flex" : "max-w-screen-ds mx-auto"}>
+    <div className={isAdmin ? "flex w-12/12" : "max-w-screen-ds mx-auto"}>
       {!isAdmin && <Header />}
       {isAdmin && <AdminSideMenu />}
 

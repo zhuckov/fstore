@@ -8,15 +8,15 @@ import Logo from "../../ui/logo/Logo";
 
 const AdminSideMenu: FC = () => {
   return (
-    <div className="w-2/12 h-screen side-menu bg-admin-side-bg pt-10 px-5">
-      <div className="mt-10">
+    <div className="w-3/12 h-screen side-menu bg-admin-side-bg pt-0 px-5">
+      <div className="mt-8">
         <Logo pathToLogo="/logo.svg" />
-        <p className="text-admin-menu-color opacity-50 text-base my-1">MENU</p>
+        <p className="text-admin-menu-color opacity-50 text-xl mt-2">MENU</p>
         <div className="flex flex-col gap-1">
           <SideLink link="/admin-panel" linkText="Dashboard" Icon={DashboardIcon} />
           <SideLink link="/admin-manage-menu" linkText="Manage Menu" Icon={MenuIcon} />
         </div>
-        <p className="text-admin-menu-color opacity-50 text-base my-1">OTHER</p>
+        <p className="text-admin-menu-color opacity-50 text-xl mt-2">OTHER</p>
         <div className="flex flex-col gap-1">
           <SideLink link="/admin-users" linkText="Users" Icon={UsersIcon} />
           <SideLink link="/admin-orders" linkText="Manage Orders" Icon={OrderIcon} />

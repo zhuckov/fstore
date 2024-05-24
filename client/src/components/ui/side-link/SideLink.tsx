@@ -9,7 +9,7 @@ const SideLink: FC<ISideLink> = ({ Icon, link, linkText }) => {
       {({ isActive }) => (
         <>
           <Icon isActive={isActive} />
-          <span className={`text-base font-semibold ${isActive ? "text-admin-active-link" : "text-admin-menu-color opacity-50"}`}>
+          <span className={`text-xl font-semibold ${isActive ? "text-admin-active-link" : "text-admin-menu-color opacity-50"}`}>
             {linkText}
           </span>
         </>
