@@ -29,4 +29,4 @@ export interface IHeaderLink {
   children: ReactNode;
 }
 
-export interface ICatalogDisplaySwitcher {}
+export interface IAdminCatalog {}

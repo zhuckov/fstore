@@ -1,11 +1,11 @@
 import { ICatalogDisplaySwitcher } from "@/types/types";
 import { FC } from "react";
-import { GridCatalogIcon } from "../icons/grid-catalog/GridCatalogIcon";
-import { RowCatalogIcon } from "../icons/row-catalog/RowCatalogIcon";
+import { GridCatalogIcon } from "../../ui/icons/grid-catalog/GridCatalogIcon";
+import { RowCatalogIcon } from "../../ui/icons/row-catalog/RowCatalogIcon";
 
 const CatalogDisplaySwitcher: FC<ICatalogDisplaySwitcher> = ({}) => {
   return (
-    <div className="flex">
+    <div className="flex items-center gap-1">
       <GridCatalogIcon />
       <RowCatalogIcon />
     </div>
