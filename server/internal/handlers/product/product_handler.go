@@ -32,3 +32,5 @@ func GetProducts(c *gin.Context, db *sql.DB) {
 	}
 	c.JSON(200, products)
 }
+
+func CreateUser()
