@@ -37,13 +37,27 @@ func GetProducts(c *gin.Context, db *sql.DB) {
 
 func CreateProduct(c *gin.Context, db *sql.DB) (p models.CreateProductInput) {
 	var product models.CreateProductInput
+	/*
+		ShouldBindBodyWithJSON по ссылке на переменную product помещает внуть json из c.Request.Body
+		если возникает ошибка то создаем map с ключом "error" и значением err.Error() и возращаем 400 статус
+	*/
 	if err := c.ShouldBindBodyWithJSON(&product); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	}
 	queryString := fmt.Sprintf("INSERT INTO products (product_name, product_price, product_card_photo) VALUES ('%s',%d,'%s');", product.ProductName, product.ProductPrice, product.ProductCardPhoto)
 	_, err := db.Exec(queryString)
 	if err != nil {
-		log.Fatal("Ошибка при выполнении запроса к базе данных:", err)
+		log.Fatal("Ошибка при создании продукта:", err)
 	}
 	return product
+}
+
+func DeleteProduct(c *gin.Context, db *sql.DB) error {
+	id := c.Param("id")
+	queryString := "DELETE FROM products WHERE id = " + string(id)
+	_, err := db.Exec(queryString)
+	if err != nil {
+		log.Fatal("Ошибка при выполнении удалении продукта:", err)
+	}
+	return nil
 }

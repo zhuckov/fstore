@@ -42,6 +42,9 @@ func main() {
 	r.POST("/", func(ctx *gin.Context) {
 		product.CreateProduct(ctx, database)
 	})
+	r.DELETE("/products/:id", func(ctx *gin.Context) {
 
+		product.DeleteProduct(ctx, database)
+	})
 	r.Run(serverHost)
 }
