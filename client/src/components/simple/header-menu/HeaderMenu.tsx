@@ -2,7 +2,7 @@ import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { Popover } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import HeaderLink from "../../../ui/header-link/HeaderLink";
+import HeaderLink from "../../ui/header-link/HeaderLink";
 
 interface IHeaderMenu {
   setMobileMenuOpen: (newState: boolean) => void;
@@ -33,7 +33,7 @@ const HeaderMenu: FC<IHeaderMenu> = ({ setMobileMenuOpen }) => {
         </div>
 
         <div className="hidden lp:flex lp:flex-1 lp:items-center lp:gap-2 lp:justify-end">
-          <HeaderLink link="/login">
+          <HeaderLink link="/admin-panel">
             Log in
             <svg
               xmlns="http://www.w3.org/2000/svg"

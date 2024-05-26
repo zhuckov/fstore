@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HeaderMenu from "./header-menu/HeaderMenu";
+import HeaderMenu from "../header-menu/HeaderMenu";
 import Sidebar from "../sidebar/Sidebar";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
