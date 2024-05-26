@@ -1,6 +1,6 @@
 import { IProduct } from "@/types/types";
 
-const URL = "http://localhost:80/";
+const URL = "http://localhost:80/products/";
 
 export const fetchAllProducts = async (): Promise<IProduct[]> => {
   const response = await fetch(URL);

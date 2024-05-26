@@ -8,7 +8,7 @@ import Logo from "../../ui/logo/Logo";
 
 const AdminSideMenu: FC = () => {
   return (
-    <div className="w-3/12 h-screen side-menu bg-admin-side-bg pt-0 px-5">
+    <div className="w-3/12 min-h-screen side-menu bg-admin-side-bg pt-0 px-5">
       <div className="mt-8">
         <Logo pathToLogo="/logo.svg" />
         <p className="text-admin-menu-color opacity-50 text-base mb-2">MENU</p>

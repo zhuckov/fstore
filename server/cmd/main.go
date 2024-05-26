@@ -35,11 +35,11 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	r.GET("/", func(ctx *gin.Context) {
+	r.GET("/products/", func(ctx *gin.Context) {
 		product.GetProducts(ctx, database)
 	})
 
-	r.POST("/", func(ctx *gin.Context) {
+	r.POST("/products/", func(ctx *gin.Context) {
 		product.CreateProduct(ctx, database)
 	})
 	r.DELETE("/products/:id", func(ctx *gin.Context) {
