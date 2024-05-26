@@ -6,3 +6,9 @@ type Product struct {
 	ProductPrice     int    `json:"productPrice"`
 	ProductCardPhoto string `json:"productPhoto"`
 }
+
+type CreateProductInput struct {
+	ProductName      string `json:"productName" binding:"required"`
+	ProductPrice     int    `json:"productPrice" binding:"required"`
+	ProductCardPhoto string `json:"productPhoto" binding:"required"`
+}
