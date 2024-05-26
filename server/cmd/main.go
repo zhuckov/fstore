@@ -46,5 +46,8 @@ func main() {
 
 		product.DeleteProduct(ctx, database)
 	})
+	r.PUT("/products/:id", func(ctx *gin.Context) {
+		product.UpdateMethod(ctx, database)
+	})
 	r.Run(serverHost)
 }

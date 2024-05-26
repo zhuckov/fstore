@@ -61,3 +61,19 @@ func DeleteProduct(c *gin.Context, db *sql.DB) error {
 	}
 	return nil
 }
+func UpdateMethod(c *gin.Context, db *sql.DB) error {
+	id := c.Param("id")
+	var product models.CreateProductInput
+	if err := c.ShouldBindBodyWithJSON(&product); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
+	queryString := `
+	UPDATE products 
+	SET product_name = $1, product_price = $2, product_card_photo = $3
+	WHERE id = $4`
+	_, err := db.Exec(queryString, product.ProductName, product.ProductPrice, product.ProductCardPhoto, id)
+	if err != nil {
+		log.Fatal("Ошибка при выполнении обновления продукта:", err)
+	}
+	return nil
+}
