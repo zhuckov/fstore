@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
-import ProductsListView from "../../components/smart/products-view/ProductsListView";
 import { IProduct } from "../../types/types";
 import { fetchAllProducts } from "../../services/productService";
+import ProductsListView from "../../components/smart/products-view/ProductsListView";
 
 const AdminCatalog: FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);

@@ -10,7 +10,7 @@ const ProductsListView: FC<IProductList> = ({ products }) => {
           key={product.id}
         >
           <div className="card-info flex items-center">
-            <img className="w-14 h-14 rounded-lg mr-6" src={product.productPhoto} alt={product.productName} />
+            <img className="w-14 h-14 rounded-lg mr-6" src={product.productPhoto.replace(".", "")} alt={product.productName} />
             <p className="text-2xl mr-10">{product.productName}</p>
             <p className="text-2xl">
               {Intl.NumberFormat("ru-RU", {

@@ -33,7 +33,7 @@ const HeaderMenu: FC<IHeaderMenu> = ({ setMobileMenuOpen }) => {
         </div>
 
         <div className="hidden lp:flex lp:flex-1 lp:items-center lp:gap-2 lp:justify-end">
-          <HeaderLink link="/admin-panel">
+          <HeaderLink link="/admin/panel">
             Log in
             <svg
               xmlns="http://www.w3.org/2000/svg"

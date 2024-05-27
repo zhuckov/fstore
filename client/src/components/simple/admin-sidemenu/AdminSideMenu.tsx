@@ -13,13 +13,13 @@ const AdminSideMenu: FC = () => {
         <Logo pathToLogo="/logo.svg" />
         <p className="text-admin-menu-color opacity-50 text-base mb-2">MENU</p>
         <div className="flex flex-col gap-1">
-          <SideLink link="/admin-panel" linkText="Dashboard" Icon={DashboardIcon} />
-          <SideLink link="/admin-manage-menu" linkText="Manage Menu" Icon={MenuIcon} />
+          <SideLink link="/admin/panel" linkText="Dashboard" Icon={DashboardIcon} />
+          <SideLink link="/admin/manage-menu" linkText="Manage Menu" Icon={MenuIcon} />
         </div>
         <p className="text-admin-menu-color opacity-50 text-base mt-2">OTHER</p>
         <div className="flex flex-col gap-1">
-          <SideLink link="/admin-users" linkText="Users" Icon={UsersIcon} />
-          <SideLink link="/admin-orders" linkText="Manage Orders" Icon={OrderIcon} />
+          <SideLink link="/admin/users" linkText="Users" Icon={UsersIcon} />
+          <SideLink link="/admin/orders" linkText="Manage Orders" Icon={OrderIcon} />
         </div>
       </div>
     </div>
