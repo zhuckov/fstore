@@ -7,6 +7,7 @@ import Admin from "./pages/Admin";
 import Header from "./components/simple/header/Header";
 import AdminCatalog from "./pages/admin-catalog/AdminCatalog";
 import AdminSideMenu from "./components/simple/admin-sidemenu/AdminSideMenu";
+import ProductCreatePage from "./components/smart/product-create/ProductCreatePage";
 
 const App: FC = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const App: FC = () => {
     location.pathname == "/admin/panel" ||
     location.pathname == "/admin/manage-menu" ||
     location.pathname == "/admin/orders" ||
+    location.pathname == "/admin/create-product" ||
     location.pathname == "/admin/users";
   return (
     <div className={isAdmin ? "flex w-12/12" : "max-w-screen-ds mx-auto"}>
@@ -26,7 +28,7 @@ const App: FC = () => {
         <Route path="/admin/panel" element={<Admin />} />
         <Route path="/admin/orders" element={<Admin />} />
         <Route path="/admin/users" element={<Admin />} />
-        <Route path="/admin/create-product" element={<Admin />} />
+        <Route path="/admin/create-product" element={<ProductCreatePage />} />
         <Route path="/admin/manage-menu" element={<AdminCatalog />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

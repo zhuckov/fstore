@@ -32,3 +32,18 @@ export interface IHeaderLink {
 export interface IProductList {
   products: IProduct[];
 }
+
+export interface IEditableInputProps {
+  initialValue: string | number | null;
+}
+
+export interface IProductTitleProps {
+  title: string;
+  clickEvent: () => void;
+}
+
+export interface IProductInputProps {
+  classes?: string;
+  blurEvent: (e: React.FocusEvent<HTMLInputElement>) => void;
+  defaultValue: string | number;
+}
