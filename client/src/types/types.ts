@@ -34,7 +34,8 @@ export interface IProductList {
 }
 
 export interface IEditableInputProps {
-  initialValue: string | number | null;
+  initialValue?: string | number;
+  placeholder?: string;
 }
 
 export interface IProductTitleProps {
@@ -44,6 +45,16 @@ export interface IProductTitleProps {
 
 export interface IProductInputProps {
   classes?: string;
+  placeholder?: string;
   blurEvent: (e: React.FocusEvent<HTMLInputElement>) => void;
-  defaultValue: string | number;
+  defaultValue?: string | number;
+}
+
+export interface IProductFormProps {
+  price: number;
+  setPrice: (newPrice: number) => void;
+  sale: number;
+  setSale: (percent: number) => void;
+  isSale: boolean;
+  setIsSale: () => void;
 }

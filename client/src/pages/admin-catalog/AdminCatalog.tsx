@@ -27,7 +27,7 @@ const AdminCatalog: FC = () => {
     <div className="w-9/12 px-10 pt-10">
       {isLoading && <p>Загрузка</p>}
       {error && <p>{error}</p>}
-      <button>+ CREATE NEW</button>
+      <a href="/admin/create-product">+ CREATE NEW</a>
       <ProductsListView products={products} />
     </div>
   );

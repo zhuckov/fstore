@@ -18,6 +18,15 @@ export default {
         "admin-active-bg": "rgba(112, 127, 221, 0.1)",
         "admin-active-link": "#5A6ACF",
       },
+      width: {
+        "card-photo-xl": "360px",
+      },
+      minWidth: {
+        "card-photo-xl": "360px",
+      },
+      height: {
+        "card-photo-xl": "360px",
+      },
       fontFamily: {
         "header-link": ["Gotchic"],
       },
