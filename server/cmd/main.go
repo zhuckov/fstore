@@ -42,7 +42,7 @@ func main() {
 	r.POST("/products/", func(ctx *gin.Context) {
 		product.CreateProduct(ctx, database)
 	})
-	r.DELETE("/products/:id", func(ctx *gin.Context) {
+	r.DELETE("/products/", func(ctx *gin.Context) {
 
 		product.DeleteProduct(ctx, database)
 	})

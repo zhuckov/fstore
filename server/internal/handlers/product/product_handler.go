@@ -54,8 +54,14 @@ func CreateProduct(c *gin.Context, db *sql.DB) (p models.CreateProductInput) {
 }
 
 func DeleteProduct(c *gin.Context, db *sql.DB) error {
-	id := c.Param("id")
-	queryString := "DELETE FROM products WHERE id = " + string(id)
+	var reqId models.DeleteUserRequest
+
+	if err := c.ShouldBindBodyWithJSON(&reqId); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+	}
+
+	queryString := fmt.Sprint("DELETE FROM products WHERE id = ", reqId.ID)
+	fmt.Println(reqId)
 	_, err := db.Exec(queryString)
 	if err != nil {
 		log.Fatal("Ошибка при выполнении удалении продукта:", err)

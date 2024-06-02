@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { IProductList } from "../../../types/types";
+import { removeProduct } from "../../../services/productService";
 
 const ProductsListView: FC<IProductList> = ({ products }) => {
   return (
@@ -11,7 +12,7 @@ const ProductsListView: FC<IProductList> = ({ products }) => {
             key={product.id}
           >
             <div className="card-info w-full flex items-center">
-              <img className="w-14 h-14 rounded-lg mr-6" src={product.productPhoto} alt={product.productName} />
+              <img className="w-20ч  h-20 rounded-lg mr-6" src={product.productPhoto} alt={product.productName} />
               <p className="text-2xl mr-10">{product.productName}</p>
               <p className="text-2xl">
                 {Intl.NumberFormat("ru-RU", {
@@ -20,12 +21,12 @@ const ProductsListView: FC<IProductList> = ({ products }) => {
                 }).format(product.productPrice)}
               </p>
               <div className="flex ml-auto items-center gap-2">
-                <a className="text-blue-500" href="#">
+                <button className="text-blue-500 hover:underline" onClick={() => removeProduct(product.id)}>
                   remove
-                </a>
-                <a className="text-blue-500" href="#">
+                </button>
+                <button className="text-blue-500 py-2 hover:underline" onClick={() => console.log("Edit")}>
                   edit
-                </a>
+                </button>
               </div>
             </div>
           </div>

@@ -12,3 +12,7 @@ type CreateProductInput struct {
 	ProductPrice     int    `json:"productPrice" binding:"required"`
 	ProductCardPhoto string `json:"productPhoto" binding:"required"`
 }
+
+type DeleteUserRequest struct {
+	ID int `json:"id" binding:"required"`
+}
