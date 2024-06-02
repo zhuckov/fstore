@@ -1,21 +1,44 @@
+import { IProductFormProps } from "../../../types/types";
 import EditableInput from "../../ui/editable-input/EditableInput";
 import { FC } from "react";
 
-const PricingForm: FC = ({}) => {
+const PricingForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, isSale, setSale }) => {
+  const toggleChecked = () => {
+    if (isSale) {
+      setSale(0);
+    }
+    setIsSale();
+  };
+
+  const percentValidator = (percent: number | string): boolean => {
+    const num = typeof percent === "string" ? parseFloat(percent) : percent;
+    return num > 1 && num < 100;
+  };
+
   return (
-    <div className="pricing-block flex flex-col gap-4">
-      <div className="flex flex-col gap-4">
-        <p className="text-xl">Цена со скидкой:</p>
-        <EditableInput initialValue={"100"} placeholder="Введите цену..." />
+    <div className="pricing-block flex flex-col gap-6">
+      <div className="flex items-center gap-4">
+        <p className="text-lg font-semibold">Скидка на товар?</p>
+        <input className="relative top-0.5" onChange={toggleChecked} type="checkbox" />
       </div>
-      <div className="flex  items-center gap-8">
-        <p className="text-xl">Есть скидка на товар?</p>
-        <input type="checkbox" />
+      <div className="flex flex-col gap-2">
+        <p className="text-lg font-semibold">Цена:</p>
+        <EditableInput setValue={setPrice} value={price} placeholder="Введите цену" />
       </div>
-      <div className="flex gap-4">
-        <p className="text-xl">Цена без скидки:</p>
-        <EditableInput placeholder="Введите цену..." initialValue={"0"} />
-      </div>
+      {isSale ? (
+        <div className="flex flex-col gap-2">
+          <p className="text-lg font-semibold">Скидка:</p>
+          <EditableInput
+            valueValidator={percentValidator}
+            postfix="%"
+            value={sale}
+            setValue={setSale}
+            placeholder="Введите скидку в процентах"
+          />
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

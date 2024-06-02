@@ -3,17 +3,27 @@ import EditableHeading from "../../ui/editable-heading/EditableHeading";
 import PricingForm from "../pricing-form/PricingForm";
 import { IProductFormProps } from "../../../types/types";
 
-const ProductForm: FC<IProductFormProps> = ({}) => {
+const ProductForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, isSale, setSale }) => {
   return (
     <form className="flex w-full flex-col" action="#">
       <EditableHeading />
-      <PricingForm />
-      <button
-        type="button"
-        className="max-w-40 w-full mt-10 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-      >
-        Добавить товар
-      </button>
+      <PricingForm price={price} sale={sale} setPrice={setPrice} isSale={isSale} setSale={setSale} setIsSale={setIsSale} />
+      <div className="flex gap-4 items-center justify-between border-gray-400 mt-8 w-6/12 border-t-2 pt-4">
+        <p className="text-lg w-6/12 text-gray-500 font-semibold">
+          Итоговая цена:{" "}
+          {Intl.NumberFormat("ru-RU", {
+            currency: "RUB",
+            style: "currency",
+            maximumFractionDigits: 0,
+          }).format(Math.round(price * (1 - sale / 100)))}
+        </p>
+        <button
+          type="button"
+          className="m-w-40 focus:outline-none text-gray-100 text-sm bg-blue-700 hover:bg-blue-800 font-medium rounded-lg px-4 py-2"
+        >
+          Добавить товар
+        </button>
+      </div>
     </form>
   );
 };

@@ -3,7 +3,7 @@ import { IProductTitleProps } from "../../../types/types";
 
 const ProductTitle: FC<IProductTitleProps> = ({ title, clickEvent }) => {
   return (
-    <h2 onClick={() => clickEvent()} className="text-2xl mb-4">
+    <h2 onClick={() => clickEvent()} className="text-xl mb-4">
       {title}
     </h2>
   );

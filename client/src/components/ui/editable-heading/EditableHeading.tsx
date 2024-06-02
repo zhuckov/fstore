@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import { IEditableInputProps } from "../../../types/types";
 import ProductTitle from "../product-title/ProductTitle";
+import { IEditableHeading } from "../../../types/types";
 
-const EditableHeading: FC<IEditableInputProps> = ({ initialValue }) => {
+const EditableHeading: FC<IEditableHeading> = ({ initialValue }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   const [value, setValue] = useState(!initialValue ? "" : initialValue);
@@ -14,10 +14,15 @@ const EditableHeading: FC<IEditableInputProps> = ({ initialValue }) => {
     setIsEdit(false);
     setValue(e.target.value);
   }
-  return isEdit ? (
-    <input placeholder="Введите название продукта..." className="text-2xl mb-4" onBlur={blurHandle} defaultValue={value} />
+  return isEdit || !value ? (
+    <input
+      placeholder="Введите название продукта"
+      className="text-xl mb-4 focus-visible:outline-none border-l-2 border-gray-300 pl-2"
+      onBlur={blurHandle}
+      defaultValue={value}
+    />
   ) : (
-    <ProductTitle clickEvent={setEdit} title={value != "" ? value.toString() : "Нажмите что бы добавить название товара"} />
+    <ProductTitle clickEvent={setEdit} title={value} />
   );
 };
 

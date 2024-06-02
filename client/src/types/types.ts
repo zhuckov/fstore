@@ -34,8 +34,15 @@ export interface IProductList {
 }
 
 export interface IEditableInputProps {
-  initialValue?: string | number;
+  postfix?: string;
+  emptyText?: string;
+  value?: string | number;
+  setValue: (value: number) => void;
   placeholder?: string;
+  valueValidator?: (value: number | string) => boolean;
+}
+export interface IEditableHeading {
+  initialValue?: string;
 }
 
 export interface IProductTitleProps {
