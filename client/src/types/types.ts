@@ -43,6 +43,7 @@ export interface IEditableInputProps {
 }
 export interface IEditableHeading {
   initialValue?: string;
+  setProductName: (newProductName: string) => void;
 }
 
 export interface IProductTitleProps {
@@ -59,6 +60,8 @@ export interface IProductInputProps {
 
 export interface IProductFormProps {
   price: number;
+  productName: string;
+  setProductName: (newProductName: string) => void;
   setPrice: (newPrice: number) => void;
   sale: number;
   setSale: (percent: number) => void;

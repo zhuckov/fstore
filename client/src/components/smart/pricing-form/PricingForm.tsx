@@ -2,7 +2,7 @@ import { IProductFormProps } from "../../../types/types";
 import EditableInput from "../../ui/editable-input/EditableInput";
 import { FC } from "react";
 
-const PricingForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, isSale, setSale }) => {
+const PricingForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, isSale, setSale, productName }) => {
   const toggleChecked = () => {
     if (isSale) {
       setSale(0);
@@ -19,7 +19,7 @@ const PricingForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, 
     <div className="pricing-block flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <p className="text-lg font-semibold">Скидка на товар?</p>
-        <input className="relative top-0.5" onChange={toggleChecked} type="checkbox" />
+        <input className="relative top-0.5" checked={isSale} onChange={toggleChecked} type="checkbox" />
       </div>
       <div className="flex flex-col gap-2">
         <p className="text-lg font-semibold">Цена:</p>
