@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import ProductForm from "../product-form/ProductForm";
-import { createNewProduct } from "../../../services/productService";
+import { createNewProduct, getUnicalImageName } from "../../../services/productService";
 
 const ProductCreatePage: FC = () => {
   const [price, setPrice] = useState<number>(0);
@@ -9,6 +9,8 @@ const ProductCreatePage: FC = () => {
   const [productName, setProductName] = useState<string>("");
   const [pictureLink, setPictureLink] = useState<string>("/cesar.jpg");
   const submitHandler = () => {
+    console.log(getUnicalImageName());
+
     if (price != 0 && pictureLink != "" && productName != "") {
       const newProduct = {
         productName: productName,

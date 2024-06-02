@@ -1,6 +1,10 @@
 import { IProduct } from "../types/types";
-
+import { v4 as uuidv4 } from "uuid";
 const URL = "http://localhost:80/products/";
+
+export const getUnicalImageName = () => {
+  return `image_${uuidv4()}`;
+};
 
 export const fetchAllProducts = async (): Promise<IProduct[]> => {
   const response = await fetch(URL);
