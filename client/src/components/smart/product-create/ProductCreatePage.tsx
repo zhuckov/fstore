@@ -7,20 +7,30 @@ const ProductCreatePage: FC = () => {
   const [sale, setSale] = useState<number>(0);
   const [isSale, setIsSale] = useState<boolean>(true);
   const [productName, setProductName] = useState<string>("");
-  const [pictureLink, setPictureLink] = useState<string>("/cesar.jpg");
-  const submitHandler = () => {
-    console.log(getUnicalImageName());
-
-    if (price != 0 && pictureLink != "" && productName != "") {
+  const [pictureLink, setPictureLink] = useState<string>("/empty-image.jpg");
+  const submitHandler = async () => {
+    if (price !== 0 && pictureLink !== "" && productName !== "") {
       const newProduct = {
         productName: productName,
         productPrice: price,
         productPhoto: pictureLink,
       };
-      createNewProduct(newProduct);
+
+      try {
+        await createNewProduct(newProduct);
+        resetAllData();
+      } catch (error) {
+        console.error("Error creating product:", error);
+      }
     }
   };
-
+  const resetAllData = () => {
+    setSale(0);
+    setPrice(0);
+    setPictureLink("/empty-image.jpg");
+    setProductName("");
+    setIsSale(true);
+  };
   const nameSetter = (newName: string) => {
     setProductName(newName);
   };

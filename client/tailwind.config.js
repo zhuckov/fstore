@@ -20,6 +20,7 @@ export default {
       },
       width: {
         "card-photo-xl": "360px",
+        "3.5/12": "20%",
       },
       minWidth: {
         "card-photo-xl": "360px",
