@@ -44,6 +44,7 @@ func CreateProduct(c *gin.Context, db *sql.DB) (p models.CreateProductInput) {
 	if err := c.ShouldBindBodyWithJSON(&product); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	}
+
 	queryString := fmt.Sprintf("INSERT INTO products (product_name, product_price, product_card_photo) VALUES ('%s',%d,'%s');", product.ProductName, product.ProductPrice, product.ProductCardPhoto)
 	_, err := db.Exec(queryString)
 	if err != nil {

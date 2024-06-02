@@ -42,7 +42,7 @@ export interface IEditableInputProps {
   valueValidator?: (value: number | string) => boolean;
 }
 export interface IEditableHeading {
-  initialValue?: string;
+  productName?: string;
   setProductName: (newProductName: string) => void;
 }
 
@@ -59,6 +59,7 @@ export interface IProductInputProps {
 }
 
 export interface IProductFormProps {
+  submitCreateProduct?: () => void;
   price: number;
   productName: string;
   setProductName: (newProductName: string) => void;

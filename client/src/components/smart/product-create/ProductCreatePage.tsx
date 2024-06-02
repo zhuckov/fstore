@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import ProductForm from "../product-form/ProductForm";
+import { createNewProduct } from "../../../services/productService";
 
 const ProductCreatePage: FC = () => {
   const [price, setPrice] = useState<number>(0);
@@ -8,7 +9,13 @@ const ProductCreatePage: FC = () => {
   const [productName, setProductName] = useState<string>("");
   const [pictureLink, setPictureLink] = useState<string>("/cesar.jpg");
   const submitHandler = () => {
-    if (price && pictureLink && productName) {
+    if (price != 0 && pictureLink != "" && productName != "") {
+      const newProduct = {
+        productName: productName,
+        productPrice: price,
+        productPhoto: pictureLink,
+      };
+      createNewProduct(newProduct);
     }
   };
 
@@ -34,6 +41,7 @@ const ProductCreatePage: FC = () => {
           <img className="min-w-card-photo-xl h-card-photo-xl rounded-sm" src={pictureLink} alt="product photo" />
         </div>
         <ProductForm
+          submitCreateProduct={submitHandler}
           setProductName={nameSetter}
           price={price}
           sale={sale}

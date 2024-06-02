@@ -3,10 +3,20 @@ import EditableHeading from "../../ui/editable-heading/EditableHeading";
 import PricingForm from "../pricing-form/PricingForm";
 import { IProductFormProps } from "../../../types/types";
 
-const ProductForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, isSale, setSale, setProductName, productName }) => {
+const ProductForm: FC<IProductFormProps> = ({
+  price,
+  setPrice,
+  sale,
+  setIsSale,
+  isSale,
+  setSale,
+  setProductName,
+  productName,
+  submitCreateProduct,
+}) => {
   return (
     <form className="flex w-full flex-col" action="#">
-      <EditableHeading initialValue={productName} setProductName={setProductName} />
+      <EditableHeading productName={productName} setProductName={setProductName} />
       <PricingForm
         productName={productName}
         setProductName={setProductName}
@@ -27,7 +37,7 @@ const ProductForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, 
           }).format(Math.round(price * (1 - sale / 100)))}
         </p>
         <button
-          onClick={() => console.log("z")}
+          onClick={() => (submitCreateProduct ? submitCreateProduct() : "")}
           type="button"
           className="m-w-40 focus:outline-none text-gray-100 text-sm bg-blue-700 hover:bg-blue-800 font-medium rounded-lg px-4 py-2"
         >
