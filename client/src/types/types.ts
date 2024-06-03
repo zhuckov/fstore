@@ -29,10 +29,6 @@ export interface IHeaderLink {
   children: ReactNode;
 }
 
-export interface IProductList {
-  products: IProduct[];
-}
-
 export interface IEditableInputProps {
   postfix?: string;
   emptyText?: string;
@@ -68,4 +64,17 @@ export interface IProductFormProps {
   setSale: (percent: number) => void;
   isSale: boolean;
   setIsSale: () => void;
+}
+
+export interface IStoreProduct {
+  id: number;
+  productName: string;
+  productPrice: number;
+  productPhoto: string;
+}
+
+export interface ProductsState {
+  products: IStoreProduct[];
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null | undefined;
 }

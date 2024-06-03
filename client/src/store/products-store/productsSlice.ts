@@ -1,17 +1,14 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { IStoreProduct, ProductsState } from "../../types/types";
 
-interface IStoreProduct {
-  id: number;
-  productName: string;
-  productPrice: number;
-  productPhoto: string;
-}
-
-interface ProductsState {
-  products: IStoreProduct[];
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null;
-}
+export const fetchAllProducts = createAsyncThunk("products/fetchAllProducts", async () => {
+  const response = await fetch("http://localhost:80/products/");
+  if (!response.ok) {
+    throw new Error("Ошибка при получении продуктов.");
+  }
+  const data = await response.json();
+  return data;
+});
 
 const initialState: ProductsState = {
   products: [],
@@ -29,6 +26,20 @@ const productsSlice = createSlice({
     removeProduct: (state, action: PayloadAction<number>) => {
       state.products = state.products.filter((product) => product.id !== action.payload);
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAllProducts.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchAllProducts.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.products = action.payload;
+      })
+      .addCase(fetchAllProducts.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
   },
 });
 
