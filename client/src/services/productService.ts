@@ -15,7 +15,7 @@ export const fetchAllProducts = async (): Promise<IProduct[]> => {
   return data;
 };
 
-export const createNewProduct = async (product: any) => {
+export const createNewProduct = async (product: IProduct) => {
   const response = await fetch(URL, {
     method: "POST",
     headers: {

@@ -1,40 +1,18 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import CatalogCard from "../components/simple/catalog-card/CatalogCard";
-import { fetchAllProducts } from "../services/productService";
-import { IProduct } from "../types/types";
 import { Autoplay } from "swiper/modules";
+import { useProducts } from "../hooks/hooks";
 
 const Catalog = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>();
-
-  useEffect(() => {
-    async function getProducts() {
-      try {
-        const response = await fetchAllProducts();
-        setProducts(response);
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    getProducts();
-  }, []);
+  const { products, productStatus, error } = useProducts();
 
   return (
     <div className="lp:px-4 tb:px-3">
       <h1 className="text-4xl font-header-link mb-4">Каталог</h1>
-      {isLoading && <p>Загрузка</p>}
+      {productStatus === "loading" && <p>Загрузка</p>}
       {error && <p>{error}</p>}
-      {products.length && !isLoading ? (
+      {products ? (
         <Swiper modules={[Autoplay]} spaceBetween={20} speed={1200} slidesPerView={4} autoplay={{ delay: 2000 }} loop={true}>
           {products.map((product) => (
             <SwiperSlide key={product.id} className="flex flex-col ds:gap-2">
