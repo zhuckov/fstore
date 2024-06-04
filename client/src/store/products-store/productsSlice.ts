@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { IStoreProduct, ProductsState } from "../../types/types";
+import { removeProduct as deleteProduct } from "../../services/productService";
 
 export const fetchAllProducts = createAsyncThunk("products/fetchAllProducts", async () => {
   const response = await fetch("http://localhost:80/products/");
@@ -25,6 +26,7 @@ const productsSlice = createSlice({
     },
     removeProduct: (state, action: PayloadAction<number>) => {
       state.products = state.products.filter((product) => product.id !== action.payload);
+      deleteProduct(action.payload);
     },
   },
   extraReducers: (builder) => {
