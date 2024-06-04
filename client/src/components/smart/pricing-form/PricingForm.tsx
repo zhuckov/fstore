@@ -1,8 +1,7 @@
 import { IProductFormProps } from "../../../types/types";
 import EditableInput from "../../ui/editable-input/EditableInput";
-import { FC } from "react";
 
-const PricingForm: FC<IProductFormProps> = ({ price, setPrice, sale, setIsSale, isSale, setSale, productName }) => {
+const PricingForm = ({ price, setPrice, sale, setIsSale, isSale, setSale, productName }: IProductFormProps) => {
   const toggleChecked = () => {
     if (isSale) {
       setSale(0);

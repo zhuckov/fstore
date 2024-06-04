@@ -1,8 +1,8 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import ProductTitle from "../product-title/ProductTitle";
 import { IEditableHeading } from "../../../types/types";
 
-const EditableHeading: FC<IEditableHeading> = ({ productName, setProductName }) => {
+const EditableHeading = ({ productName, setProductName }: IEditableHeading) => {
   const [isEdit, setIsEdit] = useState(false);
 
   function setEdit(): void {

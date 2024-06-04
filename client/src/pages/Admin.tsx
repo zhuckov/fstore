@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-const Admin: FC = () => {
+const Admin = () => {
   return <div className=""></div>;
 };
 

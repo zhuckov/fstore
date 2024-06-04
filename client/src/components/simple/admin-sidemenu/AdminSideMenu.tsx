@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { MenuIcon } from "../../ui/icons/menu/MenuIcon";
 import SideLink from "../../ui/side-link/SideLink";
 import { DashboardIcon } from "../../ui/icons/dashboard/DashboardIcon";
@@ -6,7 +5,7 @@ import { OrderIcon } from "../../ui/icons/orders/OrderIcon";
 import { UsersIcon } from "../../ui/icons/user/UsersIcon";
 import Logo from "../../ui/logo/Logo";
 
-const AdminSideMenu: FC = () => {
+const AdminSideMenu = () => {
   return (
     <div className="w-3/12 min-h-screen side-menu bg-admin-side-bg pt-0 px-5">
       <div className="mt-8">

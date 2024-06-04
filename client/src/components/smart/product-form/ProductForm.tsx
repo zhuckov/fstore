@@ -1,9 +1,8 @@
-import { FC } from "react";
 import EditableHeading from "../../ui/editable-heading/EditableHeading";
 import PricingForm from "../pricing-form/PricingForm";
 import { IProductFormProps } from "../../../types/types";
 
-const ProductForm: FC<IProductFormProps> = ({
+const ProductForm = ({
   price,
   setPrice,
   sale,
@@ -13,7 +12,7 @@ const ProductForm: FC<IProductFormProps> = ({
   setProductName,
   productName,
   submitCreateProduct,
-}) => {
+}: IProductFormProps) => {
   return (
     <form className="flex w-full flex-col" action="#">
       <EditableHeading productName={productName} setProductName={setProductName} />

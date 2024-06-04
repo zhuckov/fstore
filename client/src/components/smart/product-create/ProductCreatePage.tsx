@@ -1,8 +1,8 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import ProductForm from "../product-form/ProductForm";
 import { createNewProduct, getUnicalImageName } from "../../../services/productService";
 
-const ProductCreatePage: FC = () => {
+const ProductCreatePage = () => {
   const [price, setPrice] = useState<number>(0);
   const [sale, setSale] = useState<number>(0);
   const [isSale, setIsSale] = useState<boolean>(true);

@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-const CatalogPanel: FC = ({}) => {
+const CatalogPanel = ({}) => {
   return <div>panel</div>;
 };
 

@@ -1,8 +1,7 @@
-import { ILogoProps } from "@/types/types";
-import { FC } from "react";
 import { NavLink } from "react-router-dom";
+import { ILogoProps } from "../../../types/types";
 
-const Logo: FC<ILogoProps> = ({ pathToLogo }) => {
+const Logo = ({ pathToLogo }: ILogoProps) => {
   return (
     <div className="logo mb-6">
       <NavLink to="/" className="flex items-center gap-4">

@@ -1,7 +1,6 @@
-import { FC } from "react";
 import { IProductTitleProps } from "../../../types/types";
 
-const ProductTitle: FC<IProductTitleProps> = ({ title, clickEvent }) => {
+const ProductTitle = ({ title, clickEvent }: IProductTitleProps) => {
   return (
     <h2 onClick={() => clickEvent()} className="text-xl mb-4">
       {title}

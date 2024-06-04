@@ -1,7 +1,5 @@
-import { FC } from "react";
 import PastaHutLogo from "/logo.svg";
-
-const ErrorPage: FC = () => {
+const ErrorPage = () => {
   return (
     <div className="flex gap-2 flex-col justify-center items-center ">
       <img className="h-40 w-40" src={PastaHutLogo} alt="PastaHut" />

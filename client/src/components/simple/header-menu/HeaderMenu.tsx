@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { Popover } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
@@ -8,7 +7,7 @@ interface IHeaderMenu {
   setMobileMenuOpen: (newState: boolean) => void;
 }
 
-const HeaderMenu: FC<IHeaderMenu> = ({ setMobileMenuOpen }) => {
+const HeaderMenu = ({ setMobileMenuOpen }: IHeaderMenu) => {
   return (
     <div className="">
       <nav className="mx-auto flex max-w-7xl items-center justify-between py-4 ds:px-0" aria-label="Global">

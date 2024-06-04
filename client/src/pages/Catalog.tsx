@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,9 +8,7 @@ import { fetchAllProducts } from "../services/productService";
 import { IProduct } from "../types/types";
 import { Autoplay } from "swiper/modules";
 
-interface CatalogProps {}
-
-const Catalog: FC<CatalogProps> = ({}) => {
+const Catalog = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>();

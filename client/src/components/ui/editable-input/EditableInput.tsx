@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { IEditableInputProps } from "../../../types/types";
 
-const EditableInput: FC<IEditableInputProps> = ({ value, setValue, placeholder, valueValidator, postfix = "", emptyText }) => {
+const EditableInput = ({ value, setValue, placeholder, valueValidator, postfix = "", emptyText }: IEditableInputProps) => {
   const [isEdit, setIsEdit] = useState(false);
 
   function setEdit(): void {

@@ -1,8 +1,8 @@
-import { FC, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import { fetchAllProducts, removeProduct } from "../../../store/products-store/productsSlice";
 
-const ProductsListView: FC = () => {
+const ProductsListView = () => {
   const dispatch = useAppDispatch();
   const appProducts = useAppSelector((state) => state.product.products);
   const productStatus = useAppSelector((state) => state.product.status);

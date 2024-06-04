@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
@@ -8,7 +7,7 @@ interface SidebarProps {
   setMobileMenuOpen: (newState: boolean) => void;
 }
 
-const Sidebar: FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+const Sidebar = ({ mobileMenuOpen, setMobileMenuOpen }: SidebarProps) => {
   return (
     <Dialog className="lp:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
       <div className="fixed inset-0 z-10" />

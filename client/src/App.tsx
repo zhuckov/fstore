@@ -1,5 +1,4 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { FC } from "react";
 import Catalog from "./pages/Catalog";
 import Home from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
@@ -9,14 +8,10 @@ import AdminCatalog from "./pages/admin-catalog/AdminCatalog";
 import AdminSideMenu from "./components/simple/admin-sidemenu/AdminSideMenu";
 import ProductCreatePage from "./components/smart/product-create/ProductCreatePage";
 
-const App: FC = () => {
+const App = () => {
   const location = useLocation();
-  const isAdmin =
-    location.pathname == "/admin/panel" ||
-    location.pathname == "/admin/manage-menu" ||
-    location.pathname == "/admin/orders" ||
-    location.pathname == "/admin/create-product" ||
-    location.pathname == "/admin/users";
+  const adminPaths = ["/admin/panel", "/admin/manage-menu", "/admin/orders", "/admin/create-product", "/admin/users"];
+  const isAdmin = adminPaths.includes(location.pathname);
   return (
     <div className={isAdmin ? "flex w-12/12" : "max-w-screen-ds mx-auto"}>
       {!isAdmin && <Header />}

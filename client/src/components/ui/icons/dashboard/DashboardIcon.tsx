@@ -1,7 +1,6 @@
-import { IIcon } from "@/types/types";
-import { FC } from "react";
+import { IIcon } from "../../../../types/types";
 
-export const DashboardIcon: FC<IIcon> = ({ isActive, width, height }) => {
+export const DashboardIcon = ({ isActive, width, height }: IIcon) => {
   return (
     <svg width={width ? width : "20"} height={height ? height : "20"} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

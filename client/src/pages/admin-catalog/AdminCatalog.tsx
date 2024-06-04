@@ -1,7 +1,6 @@
-import { FC } from "react";
 import ProductsListView from "../../components/smart/products-view/ProductsListView";
 
-const AdminCatalog: FC = () => {
+const AdminCatalog = () => {
   return (
     <div className="w-9/12 px-10 pt-10">
       <a
