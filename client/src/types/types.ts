@@ -6,6 +6,11 @@ export interface IProduct {
   productPrice: number;
   productPhoto: string;
 }
+export interface IProductPost {
+  productName: string;
+  productPrice: number;
+  productPhoto: string;
+}
 
 export interface ILogoProps {
   pathToLogo: string;

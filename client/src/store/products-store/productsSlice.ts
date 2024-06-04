@@ -1,6 +1,6 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IStoreProduct, ProductsState } from "../../types/types";
-import { fetchAllProducts } from "./products-function";
+import { createSlice } from "@reduxjs/toolkit";
+import { ProductsState } from "../../types/types";
+import { createNewProduct, fetchAllProducts, removeProduct } from "./products-function";
 
 const initialState: ProductsState = {
   products: [],
@@ -8,27 +8,10 @@ const initialState: ProductsState = {
   error: null,
 };
 
-export const removeProduct = createAsyncThunk("products/removeProduct", async (id: number) => {
-  const response = await fetch("http://localhost:80/products/", {
-    method: "DELETE",
-    body: JSON.stringify({
-      id: id,
-    }),
-  });
-  if (!response.ok) {
-    throw new Error(`Ошибка: ${response.status} - ${response.statusText}`);
-  }
-  return id;
-});
-
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {
-    addProduct: (state, action: PayloadAction<IStoreProduct>) => {
-      state.products.push(action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllProducts.pending, (state) => {
@@ -49,9 +32,19 @@ const productsSlice = createSlice({
       .addCase(removeProduct.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(createNewProduct.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(createNewProduct.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.products = [...state.products, action.payload];
+      })
+      .addCase(createNewProduct.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });
 
-export const { addProduct } = productsSlice.actions;
 export default productsSlice.reducer;

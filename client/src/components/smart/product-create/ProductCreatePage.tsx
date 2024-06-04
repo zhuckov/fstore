@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductForm from "../product-form/ProductForm";
-import { createNewProduct } from "../../../services/productService";
+import { useProducts } from "../../../hooks/hooks";
 
 const ProductCreatePage = () => {
   const [price, setPrice] = useState<number>(0);
@@ -8,6 +8,7 @@ const ProductCreatePage = () => {
   const [isSale, setIsSale] = useState<boolean>(true);
   const [productName, setProductName] = useState<string>("");
   const [pictureLink, setPictureLink] = useState<string>("/empty-image.jpg");
+  const { addProductHandler } = useProducts();
   const submitHandler = async () => {
     if (price !== 0 && pictureLink !== "" && productName !== "") {
       const newProduct = {
@@ -16,12 +17,8 @@ const ProductCreatePage = () => {
         productPhoto: pictureLink,
       };
 
-      try {
-        await createNewProduct(newProduct);
-        resetAllData();
-      } catch (error) {
-        console.error("Error creating product:", error);
-      }
+      addProductHandler(newProduct);
+      resetAllData();
     }
   };
   const resetAllData = () => {

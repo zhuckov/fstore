@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/products-store/productStore";
-import { removeProduct } from "../store/products-store/productsSlice";
+
 import { useEffect } from "react";
-import { fetchAllProducts } from "../store/products-store/products-function";
+import { createNewProduct, fetchAllProducts, removeProduct } from "../store/products-store/products-function";
+import { IProductPost } from "../types/types";
 
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 export const useAppSelector = useSelector.withTypes<RootState>();
@@ -17,11 +18,15 @@ export const useProducts = () => {
     dispatch(removeProduct(id));
   };
 
+  const addProductHandler = (product: IProductPost) => {
+    dispatch(createNewProduct(product));
+  };
+
   useEffect(() => {
     if (productStatus === "idle") {
       dispatch(fetchAllProducts());
     }
   }, [productStatus, dispatch]);
 
-  return { products, productStatus, error, handleRemove };
+  return { products, productStatus, error, handleRemove, addProductHandler };
 };
