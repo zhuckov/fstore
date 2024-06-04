@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductForm from "../product-form/ProductForm";
-import { createNewProduct, getUnicalImageName } from "../../../services/productService";
+import { createNewProduct } from "../../../services/productService";
 
 const ProductCreatePage = () => {
   const [price, setPrice] = useState<number>(0);

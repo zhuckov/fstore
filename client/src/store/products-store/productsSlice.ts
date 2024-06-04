@@ -1,15 +1,6 @@
-import { PayloadAction, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IStoreProduct, ProductsState } from "../../types/types";
-import { removeProduct as deleteProduct } from "../../services/productService";
-
-export const fetchAllProducts = createAsyncThunk("products/fetchAllProducts", async () => {
-  const response = await fetch("http://localhost:80/products/");
-  if (!response.ok) {
-    throw new Error("Ошибка при получении продуктов.");
-  }
-  const data = await response.json();
-  return data;
-});
+import { fetchAllProducts } from "./products-function";
 
 const initialState: ProductsState = {
   products: [],
@@ -17,16 +8,25 @@ const initialState: ProductsState = {
   error: null,
 };
 
+export const removeProduct = createAsyncThunk("products/removeProduct", async (id: number) => {
+  const response = await fetch("http://localhost:80/products/", {
+    method: "DELETE",
+    body: JSON.stringify({
+      id: id,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error(`Ошибка: ${response.status} - ${response.statusText}`);
+  }
+  return id;
+});
+
 const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<IStoreProduct>) => {
       state.products.push(action.payload);
-    },
-    removeProduct: (state, action: PayloadAction<number>) => {
-      state.products = state.products.filter((product) => product.id !== action.payload);
-      deleteProduct(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -41,9 +41,17 @@ const productsSlice = createSlice({
       .addCase(fetchAllProducts.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(removeProduct.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.products = state.products.filter((product) => product.id !== action.payload);
+      })
+      .addCase(removeProduct.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });
 
-export const { addProduct, removeProduct } = productsSlice.actions;
+export const { addProduct } = productsSlice.actions;
 export default productsSlice.reducer;

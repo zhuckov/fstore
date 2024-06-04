@@ -28,15 +28,3 @@ export const createNewProduct = async (product: any) => {
     throw new Error(`Ошибка: ${response.status} - ${response.statusText}`);
   }
 };
-
-export const removeProduct = async (id: number) => {
-  const response = await fetch(URL, {
-    method: "DELETE",
-    body: JSON.stringify({
-      id: id,
-    }),
-  });
-  if (!response.ok) {
-    throw new Error(`Ошибка: ${response.status} - ${response.statusText}`);
-  }
-};

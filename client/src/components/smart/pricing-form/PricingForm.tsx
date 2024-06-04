@@ -1,7 +1,7 @@
 import { IProductFormProps } from "../../../types/types";
 import EditableInput from "../../ui/editable-input/EditableInput";
 
-const PricingForm = ({ price, setPrice, sale, setIsSale, isSale, setSale, productName }: IProductFormProps) => {
+const PricingForm = ({ price, setPrice, sale, setIsSale, isSale, setSale }: IProductFormProps) => {
   const toggleChecked = () => {
     if (isSale) {
       setSale(0);

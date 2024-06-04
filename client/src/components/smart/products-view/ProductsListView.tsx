@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
-import { fetchAllProducts, removeProduct } from "../../../store/products-store/productsSlice";
+import { removeProduct } from "../../../store/products-store/productsSlice";
+import { fetchAllProducts } from "../../../store/products-store/products-function";
 
 const ProductsListView = () => {
   const dispatch = useAppDispatch();
@@ -8,6 +9,9 @@ const ProductsListView = () => {
   const productStatus = useAppSelector((state) => state.product.status);
   const error = useAppSelector((state) => state.product.error);
   const renderCount = useRef(0);
+  const handleRemove = (id: number) => {
+    dispatch(removeProduct(id));
+  };
   useEffect(() => {
     renderCount.current += 1;
     console.log(`Render count: ${renderCount.current}`);
@@ -15,10 +19,6 @@ const ProductsListView = () => {
       dispatch(fetchAllProducts());
     }
   }, [productStatus, dispatch]);
-
-  const handleRemove = (id: number) => {
-    dispatch(removeProduct(id));
-  };
 
   if (productStatus === "loading") {
     return <p>Загрузка...</p>;
