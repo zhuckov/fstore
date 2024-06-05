@@ -31,9 +31,9 @@ const ProductsListView = () => {
                 <button className="text-blue-500 hover:underline" onClick={() => handleRemove(product.id)}>
                   удалить
                 </button>
-                <button className="text-blue-500 py-2 hover:underline" onClick={() => console.log("Редактировать")}>
+                <a className="text-blue-500 py-2 hover:underline" href={`/admin/edit-product/${product.id}`}>
                   редактировать
-                </button>
+                </a>
               </div>
             </div>
           </div>

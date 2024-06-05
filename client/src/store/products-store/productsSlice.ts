@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductsState } from "../../types/types";
-import { createNewProduct, fetchAllProducts, removeProduct } from "./products-function";
+import { createNewProduct, fetchAllProducts, removeProduct, updateProduct } from "./products-function";
 
 const initialState: ProductsState = {
   products: [],
@@ -36,11 +36,24 @@ const productsSlice = createSlice({
       .addCase(createNewProduct.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(createNewProduct.fulfilled, (state, action) => {
+      .addCase(createNewProduct.fulfilled, (state, { payload }) => {
         state.status = "succeeded";
-        state.products = [...state.products, action.payload];
+        state.products = [...state.products, payload];
       })
       .addCase(createNewProduct.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+
+      .addCase(updateProduct.fulfilled, (state, { payload }) => {
+        state.status = "succeeded";
+        const index = state.products.findIndex((product) => product.id === payload.id);
+
+        if (index !== -1) {
+          state.products[index] = payload;
+        }
+      })
+      .addCase(updateProduct.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });

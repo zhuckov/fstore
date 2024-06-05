@@ -7,6 +7,7 @@ export interface IProduct {
   productPhoto: string;
 }
 export interface IProductPost {
+  id?: number;
   productName: string;
   productPrice: number;
   productPhoto: string;
@@ -79,7 +80,7 @@ export interface IStoreProduct {
 }
 
 export interface ProductsState {
-  products: IStoreProduct[];
+  products: IProductPost[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null | undefined;
 }

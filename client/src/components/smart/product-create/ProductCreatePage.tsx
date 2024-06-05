@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductForm from "../product-form/ProductForm";
 import { useProducts } from "../../../hooks/hooks";
+import { useParams } from "react-router-dom";
 
 const ProductCreatePage = () => {
   const [price, setPrice] = useState<number>(0);
@@ -8,7 +9,23 @@ const ProductCreatePage = () => {
   const [isSale, setIsSale] = useState<boolean>(true);
   const [productName, setProductName] = useState<string>("");
   const [pictureLink, setPictureLink] = useState<string>("/empty-image.jpg");
-  const { addProductHandler } = useProducts();
+  const { addProductHandler, updateProductHandler } = useProducts();
+  const { id } = useParams();
+  let findProduct = null;
+  if (id) {
+    const { products } = useProducts();
+    if (id && products) {
+      const numericId = Number(id);
+      findProduct = products.find((el) => el.id === numericId);
+    }
+  }
+  useEffect(() => {
+    if (findProduct) {
+      setProductName(findProduct.productName || "");
+      setPrice(findProduct.productPrice || 0);
+      setPictureLink(findProduct.productPhoto || "/empty-image.jpg");
+    }
+  }, [findProduct]);
   const submitHandler = async () => {
     if (price !== 0 && pictureLink !== "" && productName !== "") {
       const newProduct = {
@@ -16,8 +33,14 @@ const ProductCreatePage = () => {
         productPrice: price,
         productPhoto: pictureLink,
       };
+      const updateProduct = {
+        id: Number(id),
+        productName: productName,
+        productPrice: price,
+        productPhoto: pictureLink,
+      };
+      findProduct ? updateProductHandler(updateProduct) : addProductHandler(newProduct);
 
-      addProductHandler(newProduct);
       resetAllData();
     }
   };

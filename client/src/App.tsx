@@ -10,8 +10,16 @@ import ProductCreatePage from "./components/smart/product-create/ProductCreatePa
 
 const App = () => {
   const location = useLocation();
-  const adminPaths = ["/admin/panel", "/admin/manage-menu", "/admin/orders", "/admin/create-product", "/admin/users"];
-  const isAdmin = adminPaths.includes(location.pathname);
+  const adminPaths = [
+    "/admin/panel",
+    "/admin/manage-menu",
+    "/admin/orders",
+    "/admin/create-product",
+    "/admin/users",
+    "/admin/edit-product/:id",
+  ];
+  const editProductPathRegex = /^\/admin\/edit-product\/[^/]+$/;
+  const isAdmin = adminPaths.includes(location.pathname) || editProductPathRegex.test(location.pathname);
   return (
     <div className={isAdmin ? "flex w-12/12" : "max-w-screen-ds mx-auto"}>
       {!isAdmin && <Header />}
@@ -24,6 +32,7 @@ const App = () => {
         <Route path="/admin/orders" element={<Admin />} />
         <Route path="/admin/users" element={<Admin />} />
         <Route path="/admin/create-product" element={<ProductCreatePage />} />
+        <Route path="/admin/edit-product/:id" element={<ProductCreatePage />} />
         <Route path="/admin/manage-menu" element={<AdminCatalog />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
