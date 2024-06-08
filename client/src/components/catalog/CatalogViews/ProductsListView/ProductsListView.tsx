@@ -1,4 +1,4 @@
-import { useProducts } from "../../../hooks/hooks";
+import { useProducts } from "../../../../hooks/hooks";
 
 const ProductsListView = () => {
   const { products, productStatus, error, handleRemove } = useProducts();

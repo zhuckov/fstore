@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 
 export interface IProduct {
-  id: number;
+  id?: number;
   productName: string;
   productPrice: number;
   productPhoto: string;

@@ -1,4 +1,4 @@
-import ProductsListView from "../../components/smart/products-view/ProductsListView";
+import ProductsListView from "../../components/catalog/CatalogViews/ProductsListView/ProductsListView";
 
 const AdminCatalog = () => {
   return (
