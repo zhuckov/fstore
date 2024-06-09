@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import ProductForm from "../../components/smart/product-form/ProductForm";
+
 import { useProducts } from "../../hooks/hooks";
 import { useParams } from "react-router-dom";
+import ProductForm from "../../components/forms/product-form/ProductForm";
 
 const ProductCreatePage = () => {
   const [price, setPrice] = useState<number>(0);
