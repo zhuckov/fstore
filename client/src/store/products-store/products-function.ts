@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IProductPost } from "../../types/types";
+import { IProductPost } from "../../core/types/types";
 
 export const fetchAllProducts = createAsyncThunk("products/fetchAllProducts", async () => {
   const response = await fetch("http://localhost:80/products/");

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { ISideLink } from "../../../types/types";
+import { ISideLink } from "../../../core/types/types";
 
 const SideLink = ({ Icon, link, linkText }: ISideLink) => {
   return (

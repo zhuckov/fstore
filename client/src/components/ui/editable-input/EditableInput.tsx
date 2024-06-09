@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IEditableInputProps } from "../../../types/types";
+import { IEditableInputProps } from "../../../core/types/types";
 
 const EditableInput = ({ value, setValue, placeholder, valueValidator, postfix = "", emptyText }: IEditableInputProps) => {
   const [isEdit, setIsEdit] = useState(false);

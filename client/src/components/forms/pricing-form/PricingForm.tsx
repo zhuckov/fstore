@@ -1,4 +1,4 @@
-import { IProductFormProps } from "../../../types/types";
+import { IProductFormProps } from "../../../core/types/types";
 import EditableInput from "../../ui/editable-input/EditableInput";
 
 const PricingForm = ({ price, setPrice, sale, setIsSale, isSale, setSale }: IProductFormProps) => {

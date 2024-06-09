@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProductsState } from "../../types/types";
+import { ProductsState } from "../../core/types/types";
 import { createNewProduct, fetchAllProducts, removeProduct, updateProduct } from "./products-function";
 
 const initialState: ProductsState = {

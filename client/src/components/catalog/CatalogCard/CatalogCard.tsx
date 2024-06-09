@@ -1,4 +1,4 @@
-import { IProduct } from "../../../types/types";
+import { IProduct } from "../../../core/types/types";
 
 const CatalogCard = ({ productName, productPrice, productPhoto }: IProduct) => {
   return (

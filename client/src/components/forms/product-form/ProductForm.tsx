@@ -1,6 +1,6 @@
 import EditableHeading from "../../ui/editable-heading/EditableHeading";
 import PricingForm from "../pricing-form/PricingForm";
-import { IProductFormProps } from "../../../types/types";
+import { IProductFormProps } from "../../../core/types/types";
 
 const ProductForm = ({
   price,

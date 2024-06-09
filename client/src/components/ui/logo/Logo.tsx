@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { ILogoProps } from "../../../types/types";
+import { ILogoProps } from "../../../core/types/types";
 
 const Logo = ({ pathToLogo }: ILogoProps) => {
   return (

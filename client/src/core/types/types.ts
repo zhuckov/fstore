@@ -1,17 +1,7 @@
 import { FC, ReactNode } from "react";
 
-export interface IProduct {
-  id?: number;
-  productName: string;
-  productPrice: number;
-  productPhoto: string;
-}
-export interface IProductPost {
-  id?: number;
-  productName: string;
-  productPrice: number;
-  productPhoto: string;
-}
+export type Rating = 0 | 1 | 2 | 3 | 4 | 5;
+export type ProductId = number;
 
 export interface ILogoProps {
   pathToLogo: string;
@@ -77,10 +67,4 @@ export interface IStoreProduct {
   productName: string;
   productPrice: number;
   productPhoto: string;
-}
-
-export interface ProductsState {
-  products: IProductPost[];
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: string | null | undefined;
 }

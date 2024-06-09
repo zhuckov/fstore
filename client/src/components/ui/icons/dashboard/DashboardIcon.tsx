@@ -1,4 +1,4 @@
-import { IIcon } from "../../../../types/types";
+import { IIcon } from "../../../../core/types/types";
 
 export const DashboardIcon = ({ isActive, width, height }: IIcon) => {
   return (

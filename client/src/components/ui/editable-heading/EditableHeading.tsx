@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProductTitle from "../product-title/ProductTitle";
-import { IEditableHeading } from "../../../types/types";
+import { IEditableHeading } from "../../../core/types/types";
 
 const EditableHeading = ({ productName, setProductName }: IEditableHeading) => {
   const [isEdit, setIsEdit] = useState(false);

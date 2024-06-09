@@ -1,4 +1,4 @@
-import { IProductTitleProps } from "../../../types/types";
+import { IProductTitleProps } from "../../../core/types/types";
 
 const ProductTitle = ({ title, clickEvent }: IProductTitleProps) => {
   return (
