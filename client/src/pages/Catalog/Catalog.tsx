@@ -6,7 +6,6 @@ import CatalogCard from "../../components/catalog/CatalogCard/CatalogCard";
 
 const Catalog = () => {
   const { products, productStatus, error } = useProducts();
-
   return (
     <div className="lp:px-4 tb:px-3">
       <h1 className="text-4xl font-header-link mb-4">Каталог</h1>
