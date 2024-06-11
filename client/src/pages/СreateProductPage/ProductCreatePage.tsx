@@ -76,7 +76,7 @@ const ProductCreatePage = () => {
         <ProductForm
           submitCreateProduct={submitHandler}
           setProductName={nameSetter}
-          price={price}
+          productPrice={price}
           sale={sale}
           productName={productName}
           setPrice={priceSetter}

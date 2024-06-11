@@ -1,9 +1,9 @@
+import { IProductFormProps } from "../../../core/interfaces/IProduct";
 import EditableHeading from "../../ui/editable-heading/EditableHeading";
 import PricingForm from "../pricing-form/PricingForm";
-import { IProductFormProps } from "../../../core/types/types";
 
 const ProductForm = ({
-  price,
+  productPrice,
   setPrice,
   sale,
   setIsSale,
@@ -19,7 +19,7 @@ const ProductForm = ({
       <PricingForm
         productName={productName}
         setProductName={setProductName}
-        price={price}
+        price={productPrice}
         sale={sale}
         setPrice={setPrice}
         isSale={isSale}
@@ -33,7 +33,7 @@ const ProductForm = ({
             currency: "RUB",
             style: "currency",
             maximumFractionDigits: 0,
-          }).format(Math.round(price * (1 - sale / 100)))}
+          }).format(Math.round(productPrice * (1 - sale / 100)))}
         </p>
         <button
           onClick={() => (submitCreateProduct ? submitCreateProduct() : "")}

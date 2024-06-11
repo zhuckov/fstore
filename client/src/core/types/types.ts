@@ -37,7 +37,6 @@ export interface IEditableHeading {
   productName?: string;
   setProductName: (newProductName: string) => void;
 }
-
 export interface IProductTitleProps {
   title: string;
   clickEvent: () => void;
@@ -48,23 +47,4 @@ export interface IProductInputProps {
   placeholder?: string;
   blurEvent: (e: React.FocusEvent<HTMLInputElement>) => void;
   defaultValue?: string | number;
-}
-
-export interface IProductFormProps {
-  submitCreateProduct?: () => void;
-  price: number;
-  productName: string;
-  setProductName: (newProductName: string) => void;
-  setPrice: (newPrice: number) => void;
-  sale: number;
-  setSale: (percent: number) => void;
-  isSale: boolean;
-  setIsSale: () => void;
-}
-
-export interface IStoreProduct {
-  id: number;
-  productName: string;
-  productPrice: number;
-  productPhoto: string;
 }
