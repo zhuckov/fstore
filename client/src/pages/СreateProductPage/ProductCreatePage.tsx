@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useProducts } from "../../hooks/hooks";
 import { useParams } from "react-router-dom";
 import ProductForm from "../../components/forms/product-form/ProductForm";
+import Gallery from "../../components/gallery/Gallery";
 
 const ProductCreatePage = () => {
   const [price, setPrice] = useState<number>(0);
@@ -70,9 +71,7 @@ const ProductCreatePage = () => {
     <div className="pt-10 px-10 w-9/12">
       <p className="mb-10 text-3xl">Добавление товара</p>
       <div className="flex items-start gap-8 w-full">
-        <div className="gallery">
-          <img className="min-w-card-photo-xl h-card-photo-xl rounded-sm" src={pictureLink} alt="product photo" />
-        </div>
+        <Gallery pictureLink={pictureLink} setPictureLink={setPictureLink} />
         <ProductForm
           submitCreateProduct={submitHandler}
           setProductName={nameSetter}
